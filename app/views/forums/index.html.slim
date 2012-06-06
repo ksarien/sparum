@@ -1,0 +1,18 @@
+h2 Listing forums
+
+table
+  tr
+    th
+    th
+    th
+
+  - if @forums.present? 
+    - @forums.each do |forum|
+      tr
+        td = link_to 'Show', forum
+        td = link_to 'Edit', edit_forum_path(forum)
+        td = link_to 'Destroy', forum, :confirm => 'Are you sure?', :method => :delete
+
+br
+
+= link_to 'New Forum', new_forum_path, class: 'btn'
