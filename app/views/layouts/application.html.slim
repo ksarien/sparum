@@ -32,6 +32,9 @@ html lang="en"
 
     .container
 
+      p.notice = notice if notice.present?
+      p.alert = alert if alert.present?
+
       .content
         .row
           .span9
