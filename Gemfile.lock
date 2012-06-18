@@ -66,6 +66,9 @@ GEM
       multi_json (~> 1.0)
     fabrication (2.0.0)
     ffi (1.0.11)
+    font-awesome-sass-rails (2.0.0.0)
+      railties (>= 3.1.1)
+      sass-rails (>= 3.1.1)
     gherkin (2.10.0)
       json (>= 1.4.6)
     hike (1.2.1)
@@ -217,6 +220,7 @@ DEPENDENCIES
   devise
   enumerize
   fabrication
+  font-awesome-sass-rails
   jquery-rails
   json
   kaminari
