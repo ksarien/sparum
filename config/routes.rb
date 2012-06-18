@@ -1,7 +1,21 @@
 Sparum::Application.routes.draw do
   devise_for :users
 
-  resources :forums
+  #devise_for :users
+  devise_for :users, :controllers => {:sessions => 'devise/sessions', :registrations => 'devise/registrations'} do
+    get "/login", :to => "devise/sessions#new", :as => :login
+    get "/register", :to => "devise/regisrations#new", :as => :register
+    delete "/logout", :to => "devise/sessions#destroy", :as => :logout
+  end
+
+  resources :forums, :only => [:show, :index]
+
+
+  namespace :admin do
+    resources :forums
+
+    root :to => 'dashboard#index'
+  end
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

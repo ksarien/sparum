@@ -23,20 +23,15 @@ html lang="en"
             span.icon-bar
             span.icon-bar
             span.icon-bar
-          a.brand href="#"Sparum
+          a.brand href="/admin/" Admin Panel
           .container.nav-collapse
             ul.nav
-              - if user_signed_in?              
-                li = link_to "Выход", logout_path, :method => :delete
-              - else
-                li = link_to "Вход", login_path
-                li = link_to "Регистрация", register_path
+              li= link_to "Категории", "/admin/"
+              li= link_to "Link 2", "/path2"
+              li= link_to "Link 3", "/path3"
 
     .container
 
-      - flash.each do |name, msg|      
-        = show_flash(name, msg)        
-        
       .content
         .row
           .span9
@@ -52,12 +47,6 @@ html lang="en"
     
       footer
         p &copy; Company 2012
-        - if user_signed_in?
-          - if current_user.admin?
-            = link_to 'Администрирование', admin_path
-          - else
-            | not admin
-
     /!
       Javascripts
       \==================================================

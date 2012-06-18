@@ -10,7 +10,7 @@ class User < ActiveRecord::Base
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :password, :password_confirmation, :remember_me
 
-  enumerize :role, in: %w[admin moder user guest]
+  enumerize :role, in: %w[admin moder user guest], default: :guest
 
   role.values.each do |r|
     define_method "#{r}?" do

@@ -1,18 +1,14 @@
 h2 Listing forums
-
-table
-  tr
-    th
-    th
-    th
-
-  - if @forums.present? 
+- model_class = Forum.new.class
+table class="table table-striped"
+  thead
+    tr      
+      th = model_class.human_attribute_name(:name)
+      th = model_class.human_attribute_name(:topics_count)      
+      th = model_class.human_attribute_name(:created_at)      
+  tbody
     - @forums.each do |forum|
-      tr
-        td = link_to 'Show', forum
-        td = link_to 'Edit', edit_forum_path(forum)
-        td = link_to 'Destroy', forum, :confirm => 'Are you sure?', :method => :delete
-
-br
-
-= link_to 'New Forum', new_forum_path, class: 'btn'
+      tr        
+        td = forum.name
+        td = forum.topics_count        
+        td = l forum.created_at        
